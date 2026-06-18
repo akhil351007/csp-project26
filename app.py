@@ -4,14 +4,14 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
-# 1. PAGE SETUP
+
 st.set_page_config(page_title="CSP Clinical Portal", page_icon="⚕️", layout="wide")
 
-# 2. INITIALIZE SESSION STATE FOR AUTHENTICATION
+
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
-# 3. BACKGROUND MACHINE LEARNING TRAINING
+
 @st.cache_resource
 def train_model():
     np.random.seed(42)
@@ -42,7 +42,7 @@ def train_model():
 
 model = train_model()
 
-# VIEW A: LOGIN SCREEN
+
 if not st.session_state.logged_in:
     st.title("⚕️ Clinical Screening Portal Login")
     st.subheader("Community Service Project (CSP) - Vignan Institute")
@@ -58,7 +58,7 @@ if not st.session_state.logged_in:
         else:
             st.error("Invalid Username or Password. Try admin / csp2026")
 
-# VIEW B: MAIN APPLICATION DASHBOARD
+
 else:
     st.sidebar.markdown("### 👤 Session Active")
     st.sidebar.write("User: **Field Admin**")
